@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Payment QR</title>
+<style>
+body{
+ text-align:center;
+ font-family:Arial;
+ margin-top:30px;
+}
+#timer{
+ font-size:40px;
+ font-weight:bold;
+ margin-top:15px;
+}
+</style>
+</head>
+<body>
+
+<h2>Scan & Pay</h2>
+
+<img src="https://plain-apac-prod-public.komododecks.com/202606/10/KNIvsoMZaXME1kBNZx8Y/image.jpg" width="250">
+
+<div id="timer">05:00</div>
+
+<script>
+let timeLeft = 300;
+
+function updateTimer(){
+ let min = Math.floor(timeLeft/60);
+ let sec = timeLeft%60;
+
+ document.getElementById("timer").innerHTML =
+ String(min).padStart(2,"0")+":"+
+ String(sec).padStart(2,"0");
+
+ if(timeLeft<=0){
+   timeLeft=300;
+ }else{
+   timeLeft--;
+ }
+}
+
+updateTimer();
+setInterval(updateTimer,1000);
+</script>
+
+</body>
+</html>
